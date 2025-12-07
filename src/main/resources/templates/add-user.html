@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center; 
+            align-items: center;    
+            height: 100vh;          
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block; 
+            margin-bottom: 8px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; 
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #009879;
+            outline: none;
+        }
+
+        .btn-save {
+            width: 100%;
+            padding: 12px;
+            background-color: #009879; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-save:hover {
+            background-color: #007f65;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Add New User</h1>
+
+        <form th:action="@{/users/add}" method="post">
+            
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" name="name" placeholder="Enter name..." required>
+            </div>
+
+            <div class="form-group">
+                <label>ID:</label>
+                <input type="number" name="id" placeholder="Enter ID..." required>
+            </div>
+
+            <button type="submit" class="btn-save">Save User</button>
+        </form>
+        
+        <a href="/users" class="back-link">← Back to User List</a>
+    </div>
+
+</body>
+</html>
